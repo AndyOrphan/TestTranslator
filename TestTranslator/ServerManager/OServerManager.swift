@@ -1,0 +1,13 @@
+//
+//  OServerManager.swift
+//  TestTranslator
+//
+//  Created by Orphan on 3/9/18.
+//  Copyright © 2018 Orphan. All rights reserved.
+//
+
+import UIKit
+
+class OServerManager: NSObject {
+
+}
