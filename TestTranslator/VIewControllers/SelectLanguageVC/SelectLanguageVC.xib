@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectLanguageVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectLanguageVC" customModule="TestTranslator" customModuleProvider="target">
             <connections>
+                <outlet property="selectLanguagePicker" destination="IqX-pm-p5t" id="Z3F-Ag-gMw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +20,41 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IqX-pm-p5t">
+                    <rect key="frame" x="0.0" y="414" width="375" height="223"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="223" id="SOR-bV-Ehn"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="uW0-6y-pGq"/>
+                        <outlet property="delegate" destination="-1" id="b0c-Nu-8lM"/>
+                    </connections>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ate-wx-tXi">
+                    <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="0YG-4q-CP2"/>
+                    </constraints>
+                    <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="saveButtonAction:" destination="-1" eventType="touchUpInside" id="1AM-L4-up2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34817891725352113" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IqX-pm-p5t" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HGJ-7g-lVe"/>
+                <constraint firstItem="ate-wx-tXi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XNh-wk-hdq"/>
+                <constraint firstItem="ate-wx-tXi" firstAttribute="top" secondItem="IqX-pm-p5t" secondAttribute="bottom" id="cBY-FD-ocp"/>
+                <constraint firstItem="IqX-pm-p5t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="csT-oM-X1O"/>
+                <constraint firstItem="ate-wx-tXi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dtc-pv-14g"/>
+                <constraint firstItem="ate-wx-tXi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="gpP-L8-mLp"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="39.5" y="54.5"/>
         </view>
     </objects>
 </document>

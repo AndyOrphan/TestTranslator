@@ -8,28 +8,60 @@
 
 import UIKit
 
-class SelectLanguageVC: UIViewController {
+class SelectLanguageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var selectLanguagePicker: UIPickerView!
+    
+    var selectedLanguage: ((String) -> (Void))?
+    var languagesArray = [String]()
+    
+    let uiTapGesture = UITapGestureRecognizer()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addTap()
+        fillLangArray()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: Settings
+    
+    func addTap() {
+        uiTapGesture.addTarget(self, action: #selector(onTap))
+        view.addGestureRecognizer(uiTapGesture)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fillLangArray() {
+        languagesArray = ["English", "Українська", "Русский"]
     }
-    */
+    
+    // MARK: Actions
+    
+    @IBAction func saveButtonAction(_ sender: Any) {
+        if let lang = selectedLanguage {
+            lang(languagesArray[selectLanguagePicker.selectedRow(inComponent: 0)])
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func onTap() {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: PickerView Methods
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languagesArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languagesArray[row]
+    }
+    
+    
 
 }
