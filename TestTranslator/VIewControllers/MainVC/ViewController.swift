@@ -57,6 +57,20 @@ class ViewController: UIViewController {
         translate(text: fromTextView.text ?? "")
     }
     
+    @IBAction func swapLanguages(_ sender: Any) {
+        let textContainer = fromTextView.text ?? ""
+        fromTextView.text = toTextView.text ?? ""
+        toTextView.text = textContainer
+        
+        let buttonTextContainer = fromButtomOutlet.titleLabel?.text ?? ""
+        fromButtomOutlet.setTitle(toButtonOutlet.titleLabel?.text ?? "", for: .normal)
+        toButtonOutlet.setTitle(buttonTextContainer, for: .normal)
+        
+        let langCodeContainer = selectedFromLangCode
+        selectedFromLangCode = selectedToLangCode
+        selectedToLangCode = langCodeContainer
+    }
+    
     @IBAction func fromButtonAction(_ sender: Any) {
         let selectLanguageVC = SelectLanguageVC()
         selectLanguageVC.modalPresentationStyle = .custom
