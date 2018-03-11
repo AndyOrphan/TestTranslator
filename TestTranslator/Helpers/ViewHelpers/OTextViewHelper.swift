@@ -10,20 +10,10 @@ import UIKit
 
 class OTextViewHelper: UITextView {
 
-    @IBInspectable var isBorderActive: Bool = false {
-        didSet {
-            
-        }
-    }
-    
+    @IBInspectable var isBorderActive: Bool = false
     @IBInspectable var borderColor: UIColor = UIColor.black
     @IBInspectable var borderWidth: CGFloat = 1
-    
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            
-        }
-    }
+    @IBInspectable var cornerRadius: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()

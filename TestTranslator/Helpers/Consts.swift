@@ -11,5 +11,4 @@ import UIKit
 class Consts: NSObject {
     static let fromLanguageNotificationName = "FromNameNotification"
     static let toLanguageNotificationName = "ToNameNotification"
-    static let langDict = ["English" : "en", "Українська" : "ua", "Русский" : "ru"]
 }

@@ -15,7 +15,15 @@ class TranslateResultML: NSObject {
     func initWith(response: [String: Any]) -> TranslateResultML {
         let model = self
      
-        model.translatedText = response["text"] as? String
+        guard let translations = response["translations"] as? [Any] else {
+            return model
+        }
+        
+        guard let firstTranslation = translations.first as? [String : Any] else {
+            return model
+        }
+        
+        model.translatedText = firstTranslation["translation"] as? String
         
         return model
     }

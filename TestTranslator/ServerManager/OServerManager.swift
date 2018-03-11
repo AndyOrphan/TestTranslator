@@ -13,19 +13,19 @@ class OServerManager: NSObject {
 
     static let shared = OServerManager()
     
-    let mainUrl = "https://api.unbabel.com/tapi/v2/"
+    let mainUrl = "https://gateway.watsonplatform.net/language-translator/api/v2/"
     
     let headers = [
-        "Content-Type": "application/json"
+        "Accept": "application/json"
     ]
+    
     
     func postTranslate(text: String, from: String, to: String, callback: @escaping (_ result: TranslateResultML) -> ()) {
         let postData = ["text": text,
-                        "source_language": from,
-                        "target_language": to,
-                        "text_format": "text"]
+                        "source": from,
+                        "target": to]
         
-        Alamofire.request(mainUrl + "translation/", method: .post, parameters: postData, headers: headers).responseJSON(completionHandler: { response in
+        Alamofire.request(mainUrl + "translate", method: .post, parameters: postData, headers: headers).authenticate(user: "190fc6ed-8ec6-4193-9aa0-3c8a54cfa075", password: "VH6JNcD3m8nz").responseJSON(completionHandler: { response in
             
             switch(response.result) {
             case .success(let value):
@@ -34,6 +34,7 @@ class OServerManager: NSObject {
                 guard let responseValue = value as? [String: Any] else {
                     return
                 }
+                
                 
                 let resultModel = TranslateResultML().initWith(response: responseValue)
                 
@@ -48,4 +49,27 @@ class OServerManager: NSObject {
         
     }
     
+    //
+    func getLanguages(callback: @escaping (_ result: [LanguageML]) -> ()) {
+        
+        Alamofire.request(mainUrl + "identifiable_languages", method: .get, parameters: [:]).authenticate(user: "190fc6ed-8ec6-4193-9aa0-3c8a54cfa075", password: "VH6JNcD3m8nz").responseJSON(completionHandler: { response in
+            
+            switch(response.result) {
+            case .success(let value):
+                
+                if let dict = value as? [String: Any] {
+                    if let array = dict["languages"] as? [[String: Any]] {
+                        print(array)
+                        var modelArray = [LanguageML]()
+                        for element in array {
+                            modelArray.append(LanguageML().initWith(response: element))
+                        }
+                        callback(modelArray)
+                    }
+                }
+            case .failure(_):
+                break
+            }
+        })
+    }
 }

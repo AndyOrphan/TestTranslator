@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromButtomOutlet: UIButton!
     
     var selectedFromLangCode = "en"
-    var selectedToLangCode = "ua"
+    var selectedToLangCode = "it"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +77,8 @@ class ViewController: UIViewController {
         selectLanguageVC.modalTransitionStyle = .crossDissolve
         
         selectLanguageVC.selectedLanguage = { lang in
-            self.fromButtomOutlet.setTitle(lang, for: .normal)
-            self.selectedFromLangCode = Consts.langDict[lang] ?? "en"
+            self.fromButtomOutlet.setTitle(lang.langName ?? "", for: .normal)
+            self.selectedFromLangCode = lang.langCode ?? "en"
         }
         
         self.present(selectLanguageVC, animated: true, completion: nil)
@@ -90,8 +90,8 @@ class ViewController: UIViewController {
         selectLanguageVC.modalTransitionStyle = .crossDissolve
         
         selectLanguageVC.selectedLanguage = { lang in
-            self.toButtonOutlet.setTitle(lang, for: .normal)
-            self.selectedToLangCode = Consts.langDict[lang] ?? "ua"
+            self.toButtonOutlet.setTitle(lang.langName ?? "", for: .normal)
+            self.selectedToLangCode = lang.langCode ?? "it"
         }
         
         self.present(selectLanguageVC, animated: true, completion: nil)

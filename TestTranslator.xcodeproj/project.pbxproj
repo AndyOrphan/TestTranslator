@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		25A0050468BE60B331634412 /* Pods_TestTranslator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD8E567FCEBD66EFBC2DCF /* Pods_TestTranslator.framework */; };
+		8910DFBE2054A7FF0003DD24 /* LanguageML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8910DFBD2054A7FF0003DD24 /* LanguageML.swift */; };
+		8910DFC02054AA6A0003DD24 /* MainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8910DFBF2054AA6A0003DD24 /* MainHelper.swift */; };
 		89B2BCE320528971007C276B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BCE220528971007C276B /* AppDelegate.swift */; };
 		89B2BCE520528971007C276B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BCE420528971007C276B /* ViewController.swift */; };
 		89B2BCE820528971007C276B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B2BCE620528971007C276B /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		3D90D0B8592C8C06E9A89E82 /* Pods-TestTranslator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTranslator.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestTranslator/Pods-TestTranslator.release.xcconfig"; sourceTree = "<group>"; };
 		5E9C33B6E6A68B3E030F7820 /* Pods_TestTranslatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTranslatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8910DFBD2054A7FF0003DD24 /* LanguageML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageML.swift; sourceTree = "<group>"; };
+		8910DFBF2054AA6A0003DD24 /* MainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHelper.swift; sourceTree = "<group>"; };
 		89B2BCDF20528971007C276B /* TestTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B2BCE220528971007C276B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B2BCE420528971007C276B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				89B8E31120541D16005F0BD9 /* ViewHelpers */,
 				89B2BD0D2052C372007C276B /* Consts.swift */,
+				8910DFBF2054AA6A0003DD24 /* MainHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				89B8E30F2052FD21005F0BD9 /* TranslateResultML.swift */,
+				8910DFBD2054A7FF0003DD24 /* LanguageML.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -414,6 +420,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8910DFC02054AA6A0003DD24 /* MainHelper.swift in Sources */,
+				8910DFBE2054A7FF0003DD24 /* LanguageML.swift in Sources */,
 				89B2BCE520528971007C276B /* ViewController.swift in Sources */,
 				89B2BD0E2052C372007C276B /* Consts.swift in Sources */,
 				89B8E3102052FD21005F0BD9 /* TranslateResultML.swift in Sources */,

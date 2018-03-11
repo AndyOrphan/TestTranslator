@@ -12,8 +12,8 @@ class SelectLanguageVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
 
     @IBOutlet weak var selectLanguagePicker: UIPickerView!
     
-    var selectedLanguage: ((String) -> (Void))?
-    var languagesArray = [String]()
+    var selectedLanguage: ((LanguageML) -> (Void))?
+    var languagesArray = [LanguageML]()
     
     let uiTapGesture = UITapGestureRecognizer()
     
@@ -21,7 +21,7 @@ class SelectLanguageVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         addTap()
-        fillLangArray()
+        fillArray()
         // Do any additional setup after loading the view.
     }
     
@@ -32,15 +32,17 @@ class SelectLanguageVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         view.addGestureRecognizer(uiTapGesture)
     }
     
-    func fillLangArray() {
-        languagesArray = ["English", "Українська", "Русский"]
+    func fillArray() {
+        languagesArray = MainHelper.shared.langModelArray
     }
     
     // MARK: Actions
     
     @IBAction func saveButtonAction(_ sender: Any) {
         if let lang = selectedLanguage {
-            lang(languagesArray[selectLanguagePicker.selectedRow(inComponent: 0)])
+            if languagesArray.count > 0 {
+                lang(languagesArray[selectLanguagePicker.selectedRow(inComponent: 0)])
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -59,7 +61,8 @@ class SelectLanguageVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return languagesArray[row]
+        let model = languagesArray[row]
+        return model.langName ?? ""
     }
     
     

@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7fg-tL-nNm"/>
                                     <constraint firstAttribute="height" constant="30" id="IRI-ht-QBO"/>
                                 </constraints>
-                                <state key="normal" title="Україннська"/>
+                                <state key="normal" title="Italian"/>
                                 <connections>
                                     <action selector="toButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ur-56-6vj"/>
                                 </connections>
