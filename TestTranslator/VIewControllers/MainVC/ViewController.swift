@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var swapButtonOutlet: UIButton!
+    @IBOutlet weak var translateButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var toTextView: UITextView!
     @IBOutlet weak var fromTextView: UITextView!
     @IBOutlet weak var toButtonOutlet: UIButton!
@@ -17,6 +19,8 @@ class ViewController: UIViewController {
     
     var selectedFromLangCode = "en"
     var selectedToLangCode = "it"
+    
+    let uiTapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,12 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addObservers()
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObservers()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,8 +45,35 @@ class ViewController: UIViewController {
 
     // MARK: Settings
     
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: .UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: .UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    func removeObservers() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillShow,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillHide,
+                                                  object: nil)
+    }
+    
     func oSettings() {
         customizeNavigationBar()
+        addTapGesture()
+    }
+    
+    func addTapGesture() {
+        uiTapGesture.addTarget(self,
+                               action: #selector(tapped))
+        self.view.addGestureRecognizer(uiTapGesture)
     }
     
     // MARK: UI Methods
@@ -53,6 +89,26 @@ class ViewController: UIViewController {
     
     // MARK: Actions
 
+    @objc func tapped() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        swapButtonOutlet.isHidden = true
+        if let frameValue = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let rect = frameValue.cgRectValue
+            let height = rect.height
+            
+            animateTranslationButton(keyboardHeight: height, notification: sender)
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        swapButtonOutlet.isHidden = false
+        animateTranslationButton(keyboardHeight: 0, notification: sender)
+    }
+    
     @IBAction func translateButtonAction(_ sender: Any) {
         translate(text: fromTextView.text ?? "")
     }
@@ -97,6 +153,23 @@ class ViewController: UIViewController {
         self.present(selectLanguageVC, animated: true, completion: nil)
     }
     
+    // MARK: Animations
+    
+    func animateTranslationButton(keyboardHeight: CGFloat, notification: Notification) {
+        if let animationDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double {
+            if let animationCurve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? UInt {
+                
+                self.view.setNeedsLayout()
+                translateButtonBottomConstraint.constant = keyboardHeight
+                self.view.setNeedsUpdateConstraints()
+                
+                UIView.animate(withDuration: animationDuration, delay: 0, options: UIViewAnimationOptions(rawValue: animationCurve), animations: {
+                    self.view.layoutIfNeeded()
+                })
+                
+            }
+        }
+    }
     
     // MARK: Server Methods
     

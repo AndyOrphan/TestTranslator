@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-K8-zmI">
-                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <rect key="frame" x="16" y="64" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1AF-nR-hX7"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNI-RV-Cpu">
-                                <rect key="frame" x="16" y="270" width="343" height="30"/>
+                                <rect key="frame" x="16" y="202" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7fg-tL-nNm"/>
                                     <constraint firstAttribute="height" constant="30" id="IRI-ht-QBO"/>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1u5-Lp-7b6" customClass="OTextViewHelper" customModule="TestTranslator" customModuleProvider="target">
-                                <rect key="frame" x="16" y="118" width="343" height="120"/>
+                                <rect key="frame" x="16" y="94" width="343" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -59,7 +59,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-ky-HND" customClass="OTextViewHelper" customModule="TestTranslator" customModuleProvider="target">
-                                <rect key="frame" x="16" y="308" width="343" height="120"/>
+                                <rect key="frame" x="16" y="232" width="343" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -78,6 +78,7 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-AP-b9S">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MTo-hV-xi4"/>
                                 </constraints>
@@ -87,7 +88,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WM-O1-XME">
-                                <rect key="frame" x="16" y="446" width="343" height="30"/>
+                                <rect key="frame" x="16" y="332" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="vfj-Sw-za9"/>
                                 </constraints>
@@ -101,23 +102,23 @@
                         <constraints>
                             <constraint firstItem="8mg-AP-b9S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3uh-pV-hBO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4WM-O1-XME" secondAttribute="trailing" constant="16" id="4GS-1S-tdH"/>
-                            <constraint firstItem="Bsx-ky-HND" firstAttribute="top" secondItem="YNI-RV-Cpu" secondAttribute="bottom" constant="8" id="6uh-Sb-SUb"/>
+                            <constraint firstItem="Bsx-ky-HND" firstAttribute="top" secondItem="YNI-RV-Cpu" secondAttribute="bottom" id="6uh-Sb-SUb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YNI-RV-Cpu" secondAttribute="trailing" constant="16" id="I8U-oa-Bas"/>
-                            <constraint firstItem="1u5-Lp-7b6" firstAttribute="top" secondItem="XqU-K8-zmI" secondAttribute="bottom" constant="8" id="J0s-51-z7q"/>
+                            <constraint firstItem="1u5-Lp-7b6" firstAttribute="top" secondItem="XqU-K8-zmI" secondAttribute="bottom" id="J0s-51-z7q"/>
                             <constraint firstItem="4WM-O1-XME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MpA-97-4Nv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1u5-Lp-7b6" secondAttribute="trailing" constant="16" id="NWd-mg-bIW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8mg-AP-b9S" secondAttribute="bottom" id="OCJ-YR-ELM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XqU-K8-zmI" secondAttribute="trailing" constant="16" id="OnA-ch-akk"/>
                             <constraint firstItem="YNI-RV-Cpu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RdX-z3-jV2"/>
-                            <constraint firstItem="XqU-K8-zmI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="RtU-TI-GeX"/>
+                            <constraint firstItem="XqU-K8-zmI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RtU-TI-GeX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bsx-ky-HND" secondAttribute="trailing" constant="16" id="a4k-Iv-1H9"/>
                             <constraint firstItem="XqU-K8-zmI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bRZ-GB-nZM"/>
                             <constraint firstItem="Bsx-ky-HND" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ceb-Lo-rnG"/>
-                            <constraint firstItem="YNI-RV-Cpu" firstAttribute="top" secondItem="1u5-Lp-7b6" secondAttribute="bottom" constant="32" id="ie9-TC-KLP"/>
+                            <constraint firstItem="YNI-RV-Cpu" firstAttribute="top" secondItem="1u5-Lp-7b6" secondAttribute="bottom" constant="8" id="ie9-TC-KLP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8mg-AP-b9S" secondAttribute="trailing" id="km3-XW-1C4"/>
                             <constraint firstItem="1u5-Lp-7b6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oc4-G5-f9n"/>
-                            <constraint firstItem="1u5-Lp-7b6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="120/667" id="u7W-Sy-CMT"/>
-                            <constraint firstItem="4WM-O1-XME" firstAttribute="top" secondItem="Bsx-ky-HND" secondAttribute="bottom" constant="18" id="uGF-xy-gKO"/>
+                            <constraint firstItem="1u5-Lp-7b6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="100/667" id="u7W-Sy-CMT"/>
+                            <constraint firstItem="4WM-O1-XME" firstAttribute="top" secondItem="Bsx-ky-HND" secondAttribute="bottom" id="uGF-xy-gKO"/>
                             <constraint firstItem="Bsx-ky-HND" firstAttribute="height" secondItem="1u5-Lp-7b6" secondAttribute="height" id="vwv-w5-yL9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -126,8 +127,10 @@
                     <connections>
                         <outlet property="fromButtomOutlet" destination="XqU-K8-zmI" id="ocP-bV-pQP"/>
                         <outlet property="fromTextView" destination="1u5-Lp-7b6" id="JfM-Ta-2gN"/>
+                        <outlet property="swapButtonOutlet" destination="4WM-O1-XME" id="Ows-SY-27u"/>
                         <outlet property="toButtonOutlet" destination="YNI-RV-Cpu" id="Xc3-nM-yOf"/>
                         <outlet property="toTextView" destination="Bsx-ky-HND" id="0va-o3-LTF"/>
+                        <outlet property="translateButtonBottomConstraint" destination="OCJ-YR-ELM" id="Y5i-e7-0Yk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
