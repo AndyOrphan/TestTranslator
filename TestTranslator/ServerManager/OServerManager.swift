@@ -20,7 +20,7 @@ class OServerManager: NSObject {
     ]
     
     
-    func postTranslate(text: String, from: String, to: String, callback: @escaping (_ result: TranslateResultML) -> ()) {
+    func postTranslate(text: String, from: String, to: String, callback: @escaping (_ result: TranslateResultML,_ code: Int) -> ()) {
         let postData = ["text": text,
                         "source": from,
                         "target": to]
@@ -37,8 +37,12 @@ class OServerManager: NSObject {
                 
                 
                 let resultModel = TranslateResultML().initWith(response: responseValue)
+                if let errorCode = responseValue["error_code"] as? Int {
+                    callback(resultModel, errorCode)
+                } else {
+                    callback(resultModel, 201)
+                }
                 
-                callback(resultModel)
                 //
             case .failure(_):
                 break

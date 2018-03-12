@@ -20,4 +20,13 @@ class MainHelper: NSObject {
         })
     }
     
+    func showErrorAlert(sender: UIViewController, message: String) {
+        let alertcontroller = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: {Void in
+            alertcontroller.dismiss(animated: true, completion: nil)
+        })
+        alertcontroller.addAction(okAction)
+        sender.present(alertcontroller, animated: true, completion: nil)
+    }
+    
 }

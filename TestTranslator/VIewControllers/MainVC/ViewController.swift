@@ -104,8 +104,11 @@ class ViewController: UIViewController {
         OServerManager.shared.postTranslate(text: text,
                                             from: selectedFromLangCode,
                                             to: selectedToLangCode,
-                                            callback: { (result) in
+                                            callback: { (result, code) in
                                                 self.toTextView.text = result.translatedText ?? ""
+                                                if code != 201 {
+                                                    MainHelper.shared.showErrorAlert(sender: self, message: "Server Error")
+                                                }
                                                 })
     }
 
